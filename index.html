@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A beautiful, modern todo app to keep your tasks organized." />
+  <title>Taskflow — Todo App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient background blobs -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <main class="app-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Taskflow</span>
+      </div>
+      <div class="header-stats">
+        <span id="stats-text">0 tasks remaining</span>
+      </div>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-bar-wrapper" aria-label="Task completion progress">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Input area -->
+    <section class="input-section" aria-label="Add a new task">
+      <div class="input-wrapper">
+        <span class="input-icon">+</span>
+        <input
+          type="text"
+          id="todo-input"
+          class="todo-input"
+          placeholder="Add a new task…"
+          maxlength="120"
+          autocomplete="off"
+          aria-label="New task input"
+        />
+        <button id="add-btn" class="add-btn" aria-label="Add task">
+          <span>Add</span>
+        </button>
+      </div>
+
+      <!-- Priority selector -->
+      <div class="priority-row" role="group" aria-label="Task priority">
+        <button class="priority-btn active" data-priority="low" id="priority-low">Low</button>
+        <button class="priority-btn" data-priority="medium" id="priority-medium">Medium</button>
+        <button class="priority-btn" data-priority="high" id="priority-high">High</button>
+      </div>
+    </section>
+
+    <!-- Filter tabs -->
+    <nav class="filter-tabs" aria-label="Filter tasks">
+      <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+      <button class="filter-btn" data-filter="active" id="filter-active">Active</button>
+      <button class="filter-btn" data-filter="completed" id="filter-completed">Completed</button>
+    </nav>
+
+    <!-- Task list -->
+    <section class="task-list-section" aria-live="polite" aria-label="Task list">
+      <ul class="task-list" id="task-list" role="list"></ul>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state" aria-hidden="true">
+        <div class="empty-icon">🎯</div>
+        <p class="empty-title">All clear!</p>
+        <p class="empty-sub">Add a task above to get started.</p>
+      </div>
+    </section>
+
+    <!-- Footer actions -->
+    <footer class="app-footer" id="app-footer">
+      <span id="completed-count">0 completed</span>
+      <button id="clear-completed-btn" class="clear-btn" aria-label="Clear completed tasks">
+        Clear completed
+      </button>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
